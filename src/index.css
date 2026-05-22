@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: #f5f0eb;
+  overflow-x: hidden;
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-serif-elegant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-arabic {
+  font-family: 'Amiri', serif;
+}
+
+.font-basmala {
+  font-family: 'Aref Ruqaa Ink', 'Amiri', serif;
+}
+
+/* Envelope styles */
+.envelope-container {
+  perspective: 1200px;
+}
+
+.envelope-flap {
+  transform-origin: top center;
+  transform-style: preserve-3d;
+}
+
+.envelope-flap.open {
+  animation: openFlap 1.2s ease-in-out forwards;
+}
+
+@keyframes openFlap {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-180deg); }
+}
+
+/* Wax seal pulse */
+.wax-seal {
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+}
+
+/* Floral SVG decorations */
+.floral-border {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Countdown flip animation */
+.countdown-digit {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Particle / petal animation */
+@keyframes floatPetal {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.petal {
+  position: fixed;
+  pointer-events: none;
+  animation: floatPetal linear infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Golden divider */
+.golden-divider {
+  background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+  height: 1px;
+}
+
+/* Paper texture overlay */
+.paper-texture {
+  background-color: #faf7f2;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23faf7f2'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23e8e0d0' opacity='0.3'/%3E%3C/svg%3E");
+}
+
+/* 3D envelope open animation */
+.card-reveal {
+  animation: slideUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Shimmer effect on names */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #8b6914 0%, #c9a96e 30%, #f0d090 50%, #c9a96e 70%, #8b6914 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f0eb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9a96e;
+  border-radius: 2px;
+}
