@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section
-      className="min-h-[76svh] sm:min-h-[110vh] flex flex-col items-center justify-start relative overflow-hidden"
+      className="min-h-[73svh] sm:min-h-[110vh] flex flex-col items-center justify-start relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)',
       }}
