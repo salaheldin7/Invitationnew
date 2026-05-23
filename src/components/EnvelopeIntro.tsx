@@ -40,7 +40,7 @@ export default function EnvelopeIntro({
           className="fixed inset-0 z-50 flex items-center justify-center cursor-pointer overflow-hidden"
           style={{
             background:
-              'linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%)',
+              'radial-gradient(circle at top, #ffffff 0%, #f7f4ef 45%, #efe9df 100%)',
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -48,6 +48,28 @@ export default function EnvelopeIntro({
           transition={{ duration: 0.8 }}
           onClick={handleClick}
         >
+          {/* Ambient glow */}
+          <motion.div
+            className="absolute"
+            animate={{
+              scale: [1, 1.08, 1],
+              opacity: [0.18, 0.28, 0.18],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            style={{
+              width: 700,
+              height: 700,
+              borderRadius: '999px',
+              background:
+                'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 70%)',
+              filter: 'blur(40px)',
+            }}
+          />
+
           {/* Cinematic zoom */}
           <motion.div
             className="relative"
@@ -64,6 +86,8 @@ export default function EnvelopeIntro({
                   : 2.1,
               opacity: 1,
               y: phase === 'opening' ? 40 : 20,
+              rotateX: phase === 'opening' ? 6 : 2,
+              rotateZ: phase === 'opening' ? -1.5 : 0,
             }}
             exit={{
               scale: 3.4,
@@ -76,20 +100,33 @@ export default function EnvelopeIntro({
             style={{
               width: 360,
               height: 240,
-              perspective: '2000px',
+              perspective: '2400px',
             }}
           >
             {/* Envelope body */}
             <div
-              className="absolute inset-0 rounded-sm overflow-hidden"
+              className="absolute inset-0 rounded-[6px] overflow-hidden"
               style={{
                 background:
-                  'linear-gradient(180deg, #ffffff 0%, #fdfdfd 100%)',
+                  'linear-gradient(180deg, #ffffff 0%, #faf8f4 35%, #f3eee6 100%)',
                 boxShadow:
-                  '0 30px 80px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.08)',
+                  '0 40px 100px rgba(0,0,0,0.16), 0 12px 28px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)',
+                border: '1px solid rgba(220,215,205,0.7)',
               }}
             >
-              {/* Inner envelope lines */}
+              {/* Silk texture */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  opacity: 0.12,
+                  backgroundImage:
+                    'linear-gradient(135deg, rgba(255,255,255,0.6) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.6) 75%, transparent 75%, transparent)',
+                  backgroundSize: '14px 14px',
+                  mixBlendMode: 'soft-light',
+                }}
+              />
+
+              {/* Envelope folds */}
               <svg
                 className="absolute inset-0 w-full h-full"
                 viewBox="0 0 360 240"
@@ -99,9 +136,8 @@ export default function EnvelopeIntro({
                   y1="0"
                   x2="180"
                   y2="120"
-                  stroke="#d9d9d9"
-                  strokeWidth="0.8"
-                  opacity="0.6"
+                  stroke="rgba(198,188,172,0.55)"
+                  strokeWidth="1"
                 />
 
                 <line
@@ -109,11 +145,46 @@ export default function EnvelopeIntro({
                   y1="0"
                   x2="180"
                   y2="120"
-                  stroke="#d9d9d9"
+                  stroke="rgba(198,188,172,0.55)"
+                  strokeWidth="1"
+                />
+
+                <line
+                  x1="0"
+                  y1="240"
+                  x2="180"
+                  y2="120"
+                  stroke="rgba(210,202,188,0.28)"
                   strokeWidth="0.8"
-                  opacity="0.6"
+                />
+
+                <line
+                  x1="360"
+                  y1="240"
+                  x2="180"
+                  y2="120"
+                  stroke="rgba(210,202,188,0.28)"
+                  strokeWidth="0.8"
                 />
               </svg>
+
+              {/* Realistic inner shadow */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                animate={{
+                  opacity:
+                    phase === 'opening'
+                      ? 0.45
+                      : phase === 'opened'
+                      ? 0.15
+                      : 0,
+                }}
+                transition={{ duration: 1.4 }}
+                style={{
+                  background:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.08) 40%, transparent 75%)',
+                }}
+              />
             </div>
 
             {/* Flap */}
@@ -137,6 +208,25 @@ export default function EnvelopeIntro({
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
+              {/* Light reaction */}
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                animate={{
+                  opacity:
+                    phase === 'opening'
+                      ? [0.15, 0.35, 0.12]
+                      : 0.1,
+                }}
+                transition={{
+                  duration: 1.8,
+                }}
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(255,255,255,0.45) 0%, transparent 60%)',
+                  mixBlendMode: 'screen',
+                }}
+              />
+
               <svg
                 viewBox="0 0 360 140"
                 style={{
@@ -147,8 +237,8 @@ export default function EnvelopeIntro({
                 <polygon
                   points="0,0 360,0 180,130"
                   fill="url(#introFlapGrad)"
-                  stroke="#d9d9d9"
-                  strokeWidth="0.6"
+                  stroke="rgba(210,205,196,0.7)"
+                  strokeWidth="0.7"
                 />
 
                 <defs>
@@ -160,12 +250,50 @@ export default function EnvelopeIntro({
                     y2="100%"
                   >
                     <stop offset="0%" stopColor="#ffffff" />
-                    <stop offset="100%" stopColor="#f4f4f4" />
+                    <stop offset="45%" stopColor="#faf7f2" />
+                    <stop offset="100%" stopColor="#eee7dc" />
                   </linearGradient>
                 </defs>
               </svg>
 
-              {/* Premium Circular Seal */}
+              {/* Paper thickness */}
+              <div
+                className="absolute top-full left-0 w-full"
+                style={{
+                  height: 4,
+                  background:
+                    'linear-gradient(90deg, #ddd6ca 0%, #f8f6f2 50%, #ddd6ca 100%)',
+                  opacity: 0.9,
+                }}
+              />
+
+              {/* Dynamic shadow */}
+              <motion.div
+                className="absolute top-[95%] left-1/2 -translate-x-1/2"
+                animate={{
+                  opacity:
+                    phase === 'opening'
+                      ? [0.28, 0.42, 0.18]
+                      : 0.18,
+                  scaleX:
+                    phase === 'opening'
+                      ? [1, 1.18, 0.9]
+                      : 1,
+                }}
+                transition={{
+                  duration: 1.8,
+                }}
+                style={{
+                  width: 220,
+                  height: 28,
+                  borderRadius: '999px',
+                  background:
+                    'radial-gradient(circle, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0) 75%)',
+                  filter: 'blur(12px)',
+                }}
+              />
+
+              {/* Luxury Seal */}
               <div
                 style={{
                   position: 'absolute',
@@ -176,7 +304,7 @@ export default function EnvelopeIntro({
                   height: 120,
                   zIndex: 15,
                   filter:
-                     'drop-shadow(0 10px 24px rgba(0,0,0,0.12))',
+                    'drop-shadow(0 24px 34px rgba(0,0,0,0.22))',
                 }}
               >
                 <motion.div
@@ -187,7 +315,7 @@ export default function EnvelopeIntro({
                         : 1,
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 2.2,
                     repeat:
                       phase === 'opening' ? Infinity : 0,
                   }}
@@ -201,9 +329,9 @@ export default function EnvelopeIntro({
                     {/* Shadow */}
                     <circle
                       cx="60"
-                      cy="64"
+                      cy="66"
                       r="42"
-                      fill="rgba(0,0,0,0.14)"
+                      fill="rgba(0,0,0,0.12)"
                     />
 
                     {/* Main seal */}
@@ -220,7 +348,7 @@ export default function EnvelopeIntro({
                       cy="56"
                       r="39"
                       fill="none"
-                      stroke="rgba(255,255,255,0.7)"
+                      stroke="rgba(255,255,255,0.85)"
                       strokeWidth="2.2"
                     />
 
@@ -230,46 +358,65 @@ export default function EnvelopeIntro({
                       cy="56"
                       r="31"
                       fill="none"
-                      stroke="rgba(200,200,200,0.45)"
+                      stroke="rgba(180,180,180,0.4)"
                       strokeWidth="1"
                     />
 
-                    {/* Gloss */}
+                    {/* Pearl gloss */}
                     <ellipse
                       cx="48"
                       cy="42"
                       rx="18"
                       ry="10"
-                      fill="rgba(255,255,255,0.16)"
+                      fill="rgba(255,255,255,0.28)"
                       transform="rotate(-18 48 42)"
                     />
 
                     {/* Initials */}
                     <text
                       x="60"
-                      y="64"
+                      y="65"
                       textAnchor="middle"
                       fontFamily="'Great Vibes', cursive"
-                      fontSize="26"
-                     fill="url(#silverTextGrad)"
+                      fontSize="28"
+                      fill="url(#silverTextGrad)"
                       fontWeight="400"
+                      style={{
+                        filter:
+                          'drop-shadow(0 1px 2px rgba(255,255,255,0.5))',
+                      }}
                     >
                       K N
                     </text>
 
-                    {/* Gold gradient */}
                     <defs>
-               <radialGradient
-  id="introSealGrad"
-  cx="35%"
-  cy="30%"
-  r="65%"
->
-  <stop offset="0%" stopColor="#ffffff" />
-  <stop offset="25%" stopColor="#f8f8f8" />
-  <stop offset="55%" stopColor="#ececec" />
-  <stop offset="100%" stopColor="#d9d9d9" />
-</radialGradient>
+                      {/* Pearl seal gradient */}
+                      <radialGradient
+                        id="introSealGrad"
+                        cx="35%"
+                        cy="30%"
+                        r="65%"
+                      >
+                        <stop offset="0%" stopColor="#ffffff" />
+                        <stop offset="25%" stopColor="#fafafa" />
+                        <stop offset="55%" stopColor="#ece8e1" />
+                        <stop offset="100%" stopColor="#d8d2c8" />
+                      </radialGradient>
+
+                      {/* Silver initials */}
+                      <linearGradient
+                        id="silverTextGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stopColor="#ffffff" />
+                        <stop offset="20%" stopColor="#f4f4f4" />
+                        <stop offset="45%" stopColor="#d6d6d6" />
+                        <stop offset="70%" stopColor="#ffffff" />
+                        <stop offset="100%" stopColor="#bcbcbc" />
+                      </linearGradient>
                     </defs>
                   </svg>
                 </motion.div>
