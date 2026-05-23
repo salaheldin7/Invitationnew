@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen">
-      <audio ref={audioRef} src="/audio/piano.m4a" preload="auto" loop />
+      <audio ref={audioRef} src="/audio/aiden.mp3" preload="auto" loop />
 
       <EnvelopeIntro onOpen={handleOpen} onStartAudio={handleStartAudio} />
 
