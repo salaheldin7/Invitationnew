@@ -14,25 +14,27 @@ export default function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleOpen = useCallback(() => {
-    setTimeout(() => setInvitationOpen(true), 400);
+    setInvitationOpen(true);
   }, []);
 
   const handleStartAudio = useCallback(async () => {
     try {
       await audioRef.current?.play();
     } catch {
-      // Autoplay may be blocked until a user gesture.
+      // blocked by browser autoplay policy — no-op
     }
   }, []);
 
   return (
     <div className="relative min-h-screen">
-      <EnvelopeIntro onOpen={handleOpen} onStartAudio={handleStartAudio} />
       <audio ref={audioRef} src="/audio/mayada.m4a" preload="auto" loop />
+
+      <EnvelopeIntro onOpen={handleOpen} onStartAudio={handleStartAudio} />
 
       <AnimatePresence>
         {invitationOpen && (
           <motion.div
+            key="invitation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
