@@ -59,7 +59,7 @@ export default function FooterSection() {
         />
 
         <motion.p
-          className="font-arabic text-2xl lux-text-muted mb-2"
+         className="font-arabic arabic-gold"
           dir="rtl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

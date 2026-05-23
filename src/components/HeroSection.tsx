@@ -142,7 +142,7 @@ export default function HeroSection() {
           }}
         >
           <h1
-            className="font-script shimmer-text leading-tight px-2"
+            className="font-script gold-text leading-tight px-2"
             style={{
               fontSize: 'clamp(34px, 10vw, 60px)',
             }}
@@ -150,7 +150,7 @@ export default function HeroSection() {
             Karim & Nada
           </h1>
           <p
-            className="font-basmala shimmer-text"
+        className="font-basmala arabic-gold"
             style={{
               fontSize: 'clamp(22px, 6.6vw, 34px)',
               marginTop: '-4px',

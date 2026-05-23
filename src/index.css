@@ -47,9 +47,16 @@ body {
 }
 
 .font-basmala {
-  font-family: 'Aref Ruqaa Ink', 'Amiri', serif;
-}
+  font-family: 'Aref Ruqaa', serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 
+  color: #c9a96e;
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .lux-text {
   color: var(--lux-ivory-100);
 }
@@ -161,26 +168,31 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* Shimmer effect on names */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+/* Elegant gold text */
+
+.gold-text {
+  color: #c9a96e;
+  -webkit-text-fill-color: #c9a96e;
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.shimmer-text {
-  color: var(--lux-gold-500);
-  animation: shimmer 4s linear infinite;
-}
+/* Arabic gold fix */
 
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .shimmer-text {
-    background: linear-gradient(90deg, #8b6914 0%, #c9a96e 30%, #f0d090 50%, #c9a96e 70%, #8b6914 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
+.arabic-gold {
+  color: #c9a96e !important;
+  -webkit-text-fill-color: #c9a96e !important;
+
+  background: none !important;
+  background-image: none !important;
+
+  text-shadow: none !important;
+  filter: none !important;
+
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
 }
 
 /* Smooth section transitions */
