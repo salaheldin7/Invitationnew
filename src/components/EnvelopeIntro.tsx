@@ -43,6 +43,7 @@ export default function EnvelopeIntro({ onOpen, onStartAudio }: EnvelopeIntroPro
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
             src="/videos/intro.mov"
+            poster="/logo/INTRO.png"
             playsInline
             muted
             preload="auto"
