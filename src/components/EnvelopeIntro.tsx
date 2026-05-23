@@ -98,10 +98,11 @@ export default function EnvelopeIntro({
               alt="Invitation envelope"
               className="absolute inset-0 h-full w-full object-cover"
               style={{ translateZ: '-30px' }}
-              initial={{ opacity: 0, scale: 1.02 }}
+              initial={{ opacity: 0, scaleX: 1, scaleY: 1.08 }}
               animate={{
                 opacity: phase === 'exiting' ? 0 : 0.95, // Highly visible, rich presence
-                scale: phase === 'exiting' ? 1.06 : 1,
+                scaleX: 1,
+                scaleY: phase === 'exiting' ? 1.12 : 1.08,
                 filter: phase === 'exiting' 
                   ? 'brightness(0) blur(20px)' 
                   : 'brightness(0.9) contrast(1.15) saturate(1.1)' // Optimized crisp illumination

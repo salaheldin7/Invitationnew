@@ -44,11 +44,11 @@ export default function HeroSection() {
           alt="Basmala"
           className="w-52 sm:w-72 mx-auto opacity-90 pointer-events-none"
           style={{
-            marginTop: '14px',
+            marginTop: '12px',
             marginBottom: '-28px',
           }}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -28 }}
+          animate={{ opacity: 1, y: -6 }}
           transition={{
             delay: 0.2,
             duration: 1,

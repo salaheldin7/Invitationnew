@@ -64,7 +64,7 @@ export default function CountdownSection() {
   return (
     <section
       ref={ref}
-      className="relative py-3 sm:py-5 px-4 overflow-hidden"
+      className="relative py-0 sm:py-1 px-4 overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)' }}
     >
       {/* Subtle background lines */}
@@ -76,7 +76,7 @@ export default function CountdownSection() {
         </svg>
       </div>
 
-      <div className="max-w-lg mx-auto text-center relative z-10">
+      <div className="max-w-lg mx-auto text-center relative z-10 mt-12 sm:mt-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

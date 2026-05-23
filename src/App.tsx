@@ -19,7 +19,11 @@ export default function App() {
 
   const handleStartAudio = useCallback(async () => {
     try {
-      await audioRef.current?.play();
+      const audio = audioRef.current;
+      if (audio) {
+        audio.volume = 1;
+        await audio.play();
+      }
     } catch {
       // blocked by browser autoplay policy — no-op
     }
@@ -27,7 +31,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen">
-      <audio ref={audioRef} src="/audio/mayada.m4a" preload="auto" loop />
+      <audio ref={audioRef} src="/audio/piano.m4a" preload="auto" loop />
 
       <EnvelopeIntro onOpen={handleOpen} onStartAudio={handleStartAudio} />
 
