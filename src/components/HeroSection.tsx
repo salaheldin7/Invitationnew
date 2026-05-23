@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section
-      className="min-h-screen flex flex-col items-center justify-start relative overflow-hidden"
-      style={{ backgroundColor: '#f5ede0' }}
+      className="min-h-[110vh] flex flex-col items-center justify-start relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)',
+      }}
     >
       {/* Background image */}
       <div
@@ -14,7 +16,8 @@ export default function HeroSection() {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center top',
           backgroundSize: 'contain',
-          opacity: 0.85,
+          opacity: 0.22,
+          filter: 'brightness(0.85) saturate(0.8)',
         }}
       />
 
@@ -41,6 +44,7 @@ export default function HeroSection() {
           alt="Basmala"
           className="w-52 sm:w-72 mx-auto opacity-90 pointer-events-none"
           style={{
+            marginTop: '14px',
             marginBottom: '-28px',
           }}
           initial={{ opacity: 0, y: -20 }}
@@ -92,7 +96,7 @@ export default function HeroSection() {
 
         {/* Save the Date */}
         <motion.p
-          className="font-script text-stone-600"
+          className="font-script lux-text-muted"
           style={{
             fontSize: 'clamp(26px, 8vw, 40px)',
             marginBottom: '-2px',
@@ -109,7 +113,7 @@ export default function HeroSection() {
 
         {/* Arabic */}
         <motion.p
-          className="font-arabic text-stone-500"
+          className="font-arabic lux-text-soft"
           style={{
             fontSize: 'clamp(13px, 4vw, 18px)',
             marginBottom: '8px',
@@ -128,7 +132,7 @@ export default function HeroSection() {
         {/* Names */}
         <motion.div
           style={{
-            marginBottom: '8px',
+            marginBottom: '6px',
           }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -145,6 +149,17 @@ export default function HeroSection() {
           >
             Karim & Nada
           </h1>
+          <p
+            className="font-basmala shimmer-text"
+            style={{
+              fontSize: 'clamp(22px, 6.6vw, 34px)',
+              marginTop: '-4px',
+              animationDuration: '6s',
+            }}
+            dir="rtl"
+          >
+            كريم يوسف و ندى هشام
+          </p>
         </motion.div>
 
         {/* Divider */}
@@ -175,7 +190,7 @@ export default function HeroSection() {
           }}
         >
           <span
-            className="font-script text-stone-600"
+            className="font-script lux-text-muted"
             style={{
               fontSize: 'clamp(20px, 6vw, 30px)',
             }}
@@ -183,9 +198,9 @@ export default function HeroSection() {
             August
           </span>
 
-          <div className="text-center px-4 border-l border-r border-stone-300">
+          <div className="text-center px-4 border-l border-r border-[rgba(201,169,110,0.35)]">
             <span
-              className="font-cinzel text-stone-800 font-light"
+              className="font-cinzel lux-text font-light"
               style={{
                 fontSize: 'clamp(26px, 8vw, 40px)',
               }}
@@ -195,7 +210,7 @@ export default function HeroSection() {
           </div>
 
           <span
-            className="font-script text-stone-600"
+            className="font-script lux-text-muted"
             style={{
               fontSize: 'clamp(20px, 6vw, 30px)',
             }}
@@ -206,7 +221,7 @@ export default function HeroSection() {
 
         {/* Time */}
         <motion.p
-          className="font-cinzel text-xs tracking-[0.3em] text-stone-500 uppercase"
+          className="font-cinzel text-xs tracking-[0.3em] lux-text-faint uppercase"
           style={{
             marginBottom: '12px',
           }}
@@ -233,7 +248,7 @@ export default function HeroSection() {
           }}
         >
           <p
-            className="font-serif-elegant tracking-widest uppercase text-stone-500"
+            className="font-serif-elegant tracking-widest uppercase lux-text-soft"
             style={{
               fontSize: 'clamp(9px, 2.5vw, 13px)',
             }}
@@ -242,7 +257,7 @@ export default function HeroSection() {
           </p>
 
           <p
-            className="font-arabic normal-case text-stone-500 mt-1"
+            className="font-arabic normal-case lux-text-soft mt-1"
             style={{
               fontSize: 'clamp(12px, 3.5vw, 16px)',
             }}
@@ -262,12 +277,12 @@ export default function HeroSection() {
             duration: 0.8,
           }}
         >
-          <span className="font-serif-elegant text-xs tracking-widest text-stone-400 uppercase">
+          <span className="font-serif-elegant text-xs tracking-widest lux-text-faint uppercase">
             scroll to explore
           </span>
 
           <motion.div
-            className="w-px h-8 bg-gradient-to-b from-stone-400 to-transparent"
+            className="w-px h-8 bg-gradient-to-b from-[#c9a96e]/70 to-transparent"
             animate={{
               scaleY: [0.5, 1, 0.5],
             }}

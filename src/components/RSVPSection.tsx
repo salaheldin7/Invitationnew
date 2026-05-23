@@ -54,7 +54,7 @@ export default function RSVPSection() {
     <section
       ref={ref}
       className="relative py-24 px-6"
-      style={{ background: 'linear-gradient(180deg, #faf8f3 0%, #f5ede0 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)' }}
     >
       <div className="max-w-md mx-auto relative z-10">
         <motion.div
@@ -63,16 +63,14 @@ export default function RSVPSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-script text-5xl text-stone-700 mb-2">RSVP</h2>
-          <p className="font-arabic text-sm text-stone-500" dir="rtl">
+          <h2 className="font-script text-5xl lux-text mb-2">RSVP</h2>
+          <p className="font-arabic text-sm lux-text-soft" dir="rtl">
             الرجاء تأكيد الحضور
           </p>
-          <p className="font-serif-elegant italic text-stone-400 text-sm">
-            Kindly respond by March 1, 2026
+          <p className="font-serif-elegant italic lux-text-faint text-sm">
+            Kindly confirm your attendance.
           </p>
-          <p className="font-arabic text-xs text-stone-400" dir="rtl">
-            يرجى الرد عليها
-          </p>
+
           <div className="golden-divider w-40 mx-auto mt-4" />
         </motion.div>
 
@@ -86,8 +84,8 @@ export default function RSVPSection() {
             <div className="mx-auto mb-6">
               <WaxSealSmall />
             </div>
-            <h3 className="font-script text-4xl text-stone-700 mb-3">Thank You!</h3>
-            <p className="font-serif-elegant text-stone-500 italic">
+            <h3 className="font-script text-4xl lux-text mb-3">Thank You!</h3>
+            <p className="font-serif-elegant lux-text-soft italic">
               We look forward to celebrating with you.
             </p>
           </motion.div>
@@ -99,34 +97,37 @@ export default function RSVPSection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <div
-              className="rounded-sm px-8 py-8"
-              style={{
-                background: 'linear-gradient(135deg, #faf8f3 0%, #f5ede0 100%)',
-                boxShadow: '0 8px 40px rgba(0,0,0,0.07)',
-                border: '1px solid rgba(201, 169, 110, 0.2)',
-              }}
-            >
+            <div className="rounded-sm px-8 py-8 lux-panel">
               {/* Name */}
               <div className="mb-5">
-                <label className="font-cinzel text-xs tracking-widest text-stone-400 uppercase block mb-2">
-                  Full Name
-                </label>
+                <div className="mb-2 flex items-baseline justify-between gap-3">
+                  <label className="font-cinzel text-xs tracking-widest lux-text-faint uppercase">
+                    Full Name
+                  </label>
+                  <span className="font-arabic text-xs lux-text-faint text-right" dir="rtl">
+                    الاسم الكامل
+                  </span>
+                </div>
                 <input
                   type="text"
                   required
                   value={form.name}
                   onChange={e => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-transparent border-b border-stone-300 focus:border-stone-500 outline-none font-serif-elegant text-stone-700 py-2 text-base transition-colors"
+                  className="w-full bg-transparent border-b border-[rgba(248,241,232,0.25)] focus:border-[#e6c98a] outline-none font-serif-elegant text-[#f8f1e8] placeholder:text-[#d8c3aa]/60 py-2 text-base transition-colors"
                   placeholder="Your name..."
                 />
               </div>
 
               {/* Attending */}
               <div className="mb-5">
-                <label className="font-cinzel text-xs tracking-widest text-stone-400 uppercase block mb-3">
-                  Will you attend?
-                </label>
+                <div className="mb-3 flex items-baseline justify-between gap-3">
+                  <label className="font-cinzel text-xs tracking-widest lux-text-faint uppercase">
+                    Will you attend?
+                  </label>
+                  <span className="font-arabic text-xs lux-text-faint text-right" dir="rtl">
+                    هل ستحضر؟
+                  </span>
+                </div>
                 <div className="flex gap-4">
                   {['yes', 'no'].map(v => (
                     <button
@@ -135,8 +136,8 @@ export default function RSVPSection() {
                       onClick={() => setForm({ ...form, attending: v })}
                       className={`flex-1 py-2 border transition-all font-cinzel text-xs tracking-widest uppercase ${
                         form.attending === v
-                          ? 'border-stone-500 bg-stone-700 text-stone-100'
-                          : 'border-stone-300 text-stone-500 hover:border-stone-400'
+                          ? 'border-[#e6c98a] bg-[#3b0f1a] text-[#f8f1e8] shadow-[0_10px_24px_rgba(5,2,4,0.45)]'
+                          : 'border-[rgba(248,241,232,0.25)] text-[#e8d7c2] hover:border-[#e6c98a]'
                       }`}
                     >
                       {v === 'yes' ? 'Joyfully accepts' : 'Regretfully declines'}
@@ -148,9 +149,14 @@ export default function RSVPSection() {
               {/* Number of guests */}
               {form.attending === 'yes' && (
                 <div className="mb-5">
-                  <label className="font-cinzel text-xs tracking-widest text-stone-400 uppercase block mb-2">
-                    Number of Guests
-                  </label>
+                  <div className="mb-2 flex items-baseline justify-between gap-3">
+                    <label className="font-cinzel text-xs tracking-widest lux-text-faint uppercase">
+                      Number of Guests
+                    </label>
+                    <span className="font-arabic text-xs lux-text-faint text-right" dir="rtl">
+                      عدد الضيوف
+                    </span>
+                  </div>
                   <input
                     type="text"
                     inputMode="numeric"
@@ -162,7 +168,7 @@ export default function RSVPSection() {
                         guests: e.target.value.replace(/[^0-9]/g, ''),
                       })
                     }
-                    className="w-full bg-transparent border-b border-stone-300 focus:border-stone-500 outline-none font-serif-elegant text-stone-700 py-2 text-base transition-colors"
+                    className="w-full bg-transparent border-b border-[rgba(248,241,232,0.25)] focus:border-[#e6c98a] outline-none font-serif-elegant text-[#f8f1e8] placeholder:text-[#d8c3aa]/60 py-2 text-base transition-colors"
                     placeholder="0"
                   />
                 </div>
@@ -170,14 +176,19 @@ export default function RSVPSection() {
 
               {/* Message */}
               <div>
-                <label className="font-cinzel text-xs tracking-widest text-stone-400 uppercase block mb-2">
-                  Message for the Couple
-                </label>
+                <div className="mb-2 flex items-baseline justify-between gap-3">
+                  <label className="font-cinzel text-xs tracking-widest lux-text-faint uppercase">
+                    Message for the Couple
+                  </label>
+                  <span className="font-arabic text-xs lux-text-faint text-right" dir="rtl">
+                    رسالة للعروسين
+                  </span>
+                </div>
                 <textarea
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
                   rows={3}
-                  className="w-full bg-transparent border-b border-stone-300 focus:border-stone-500 outline-none font-serif-elegant text-stone-700 py-2 text-base resize-none transition-colors"
+                  className="w-full bg-transparent border-b border-[rgba(248,241,232,0.25)] focus:border-[#e6c98a] outline-none font-serif-elegant text-[#f8f1e8] placeholder:text-[#d8c3aa]/60 py-2 text-base resize-none transition-colors"
                   placeholder="Your warm wishes..."
                 />
               </div>
@@ -186,17 +197,17 @@ export default function RSVPSection() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full py-4 font-cinzel text-sm tracking-widest uppercase text-stone-100 transition-all hover:opacity-90 active:scale-98"
+              className="w-full py-4 font-cinzel text-sm tracking-widest uppercase text-[#f8f1e8] transition-all hover:opacity-90 active:scale-98"
               style={{
-                background: 'linear-gradient(135deg, #8b6914 0%, #c9a96e 50%, #8b6914 100%)',
-                boxShadow: '0 4px 20px rgba(139, 105, 20, 0.3)',
+                background: 'linear-gradient(135deg, #7a1f2c 0%, #c9a96e 45%, #5f1522 100%)',
+                boxShadow: '0 6px 26px rgba(7, 2, 4, 0.6)',
               }}
             >
               {status === 'loading' ? 'Sending...' : 'Send My Response'}
             </button>
 
             {status === 'error' && (
-              <div className="text-sm text-stone-500 text-center">
+              <div className="text-sm text-[#e8d7c2] text-center">
                 {errorMessage}
               </div>
             )}

@@ -82,13 +82,13 @@ function PetalShape({ size }: { size: number }) {
     <svg width={size} height={size * 1.4} viewBox="0 0 20 28" fill="none">
       <path
         d="M10 2 C14 2 18 7 18 13 C18 19 14 26 10 26 C6 26 2 19 2 13 C2 7 6 2 10 2Z"
-        fill="rgba(201, 169, 110, 0.3)"
-        stroke="rgba(201, 169, 110, 0.2)"
+        fill="rgba(201, 169, 110, 0.45)"
+        stroke="rgba(201, 169, 110, 0.25)"
         strokeWidth="0.5"
       />
       <path
         d="M10 4 C10 4 10 24 10 24"
-        stroke="rgba(201, 169, 110, 0.2)"
+        stroke="rgba(201, 169, 110, 0.25)"
         strokeWidth="0.5"
       />
     </svg>

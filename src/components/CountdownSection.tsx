@@ -65,7 +65,7 @@ export default function CountdownSection() {
     <section
       ref={ref}
       className="relative py-3 sm:py-5 px-4 overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #ede3d4 0%, #faf8f3 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)' }}
     >
       {/* Subtle background lines */}
       <div className="absolute inset-0 pointer-events-none opacity-10">
@@ -82,14 +82,14 @@ export default function CountdownSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-script text-5xl sm:text-6xl text-stone-700 mb-1">Countdown</h2>
-          <p className="font-arabic text-sm text-stone-500" dir="rtl">
+          <h2 className="font-script text-5xl sm:text-6xl lux-text mb-1 mt-4">Countdown</h2>
+          <p className="font-arabic text-sm lux-text-soft" dir="rtl">
             العد التنازلي
           </p>
-          <p className="font-serif-elegant text-sm text-stone-400 tracking-widest uppercase">
+          <p className="font-serif-elegant text-sm lux-text-faint tracking-widest uppercase">
             Until the most special day
           </p>
-          <p className="font-arabic text-xs text-stone-400 mb-6" dir="rtl">
+          <p className="font-arabic text-xs lux-text-faint mb-6" dir="rtl">
             حتى يومنا المميز
           </p>
         </motion.div>
@@ -151,8 +151,8 @@ function CountdownOrbitItem({
         animate={inView ? { opacity: 1 } : {}}
         transition={{ delay, duration: 0.6 }}
       >
-        <CountdownDigit value={pad(value)} className="text-2xl sm:text-3xl text-stone-600" />
-        <span className="mt-2 font-cinzel text-[10px] sm:text-xs tracking-widest text-stone-400 uppercase">
+        <CountdownDigit value={pad(value)} className="text-2xl sm:text-3xl lux-text" />
+        <span className="mt-2 font-cinzel text-[10px] sm:text-xs tracking-widest lux-text-faint uppercase">
           {label}
         </span>
       </motion.div>
@@ -164,7 +164,7 @@ function CountdownDigit({ value, className }: { value: string; className?: strin
   return (
     <motion.span
       key={value}
-      className={`font-cinzel font-light block text-center ${className ?? 'text-4xl text-stone-800'}`}
+      className={`font-cinzel font-light block text-center ${className ?? 'text-4xl lux-text'}`}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}

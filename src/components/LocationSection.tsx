@@ -14,7 +14,7 @@ export default function LocationSection() {
     <section
       ref={ref}
       className="relative py-24 px-6"
-      style={{ background: 'linear-gradient(180deg, #faf8f3 0%, #ede3d4 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)' }}
     >
       <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
@@ -23,17 +23,17 @@ export default function LocationSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-script text-5xl text-stone-700 mb-2">Location</h2>
-          <p className="font-serif-elegant text-sm text-stone-500 tracking-widest uppercase">
+          <h2 className="font-script text-5xl lux-text mb-2">Location</h2>
+          <p className="font-serif-elegant text-sm lux-text-soft tracking-widest uppercase">
             The Westin Cairo Golf Resort and Spa
           </p>
-          <p className="font-serif-elegant text-xs text-stone-400 mt-2">
+          <p className="font-serif-elegant text-xs lux-text-faint mt-2">
             Katameya Dunes, Cairo, Egypt
           </p>
-          <p className="font-serif-elegant text-xs text-stone-500 mt-4 italic">
+          <p className="font-serif-elegant text-xs lux-text-soft mt-4 italic">
             Kindly note: Smoking is prohibited inside the hall.
           </p>
-          <p className="font-arabic text-xs text-stone-500 mt-1" dir="rtl">
+          <p className="font-arabic text-xs lux-text-soft mt-1" dir="rtl">
             يرجى العلم أن التدخين ممنوع داخل القاعة
           </p>
           <div className="golden-divider w-40 mx-auto mt-4" />
@@ -44,13 +44,7 @@ export default function LocationSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <div
-            className="rounded-sm overflow-hidden border border-[#c9a96e]/30"
-            style={{
-              background: 'linear-gradient(135deg, #faf8f3 0%, #f5ede0 100%)',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
-            }}
-          >
+          <div className="rounded-sm overflow-hidden lux-panel">
             <iframe
               title="The Westin Cairo Golf Resort and Spa map"
               src={MAP_URL}
@@ -61,7 +55,7 @@ export default function LocationSection() {
           </div>
           <div className="mt-4 text-center">
             <a
-              className="font-serif-elegant text-xs tracking-widest uppercase text-stone-500 hover:text-stone-700"
+              className="font-serif-elegant text-xs tracking-widest uppercase text-[#e8d7c2] hover:text-[#f8f1e8]"
               href={MAP_LINK}
               target="_blank"
               rel="noreferrer"
