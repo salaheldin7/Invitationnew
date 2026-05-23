@@ -64,8 +64,13 @@ export default function CountdownSection() {
   return (
     <section
       ref={ref}
-      className="relative py-0 sm:py-1 px-4 overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)' }}
+      className="relative px-4 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)',
+        paddingTop: 0,
+        paddingBottom: '1rem',
+        marginTop: 0,
+      }}
     >
       {/* Subtle background lines */}
       <div className="absolute inset-0 pointer-events-none opacity-10">

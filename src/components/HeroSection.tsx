@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section
-      className="min-h-[100svh] sm:min-h-[110vh] flex flex-col items-center justify-start relative overflow-hidden"
+      className="flex flex-col items-center justify-center relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #1b0509 0%, #2a0a12 55%, #140507 100%)',
+        minHeight: '100svh',
       }}
     >
       {/* Background image */}
@@ -28,11 +29,11 @@ export default function HeroSection() {
           px-6 w-full max-w-lg mx-auto
         "
         style={{
-          paddingTop: '0px',
+          paddingTop: 'clamp(60px, 12svh, 120px)',
           paddingBottom: '32px',
         }}
-        initial={{ opacity: 0, y: -220 }}
-        animate={{ opacity: 1, y: -35 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 1.2,
           ease: [0.22, 1, 0.36, 1],
@@ -44,11 +45,11 @@ export default function HeroSection() {
           alt="Basmala"
           className="w-52 sm:w-72 mx-auto opacity-90 pointer-events-none"
           style={{
-            marginTop: '12px',
+            marginTop: '-118px',
             marginBottom: '-28px',
           }}
           initial={{ opacity: 0, y: -28 }}
-          animate={{ opacity: 1, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             delay: 0.2,
             duration: 1,
@@ -145,6 +146,8 @@ export default function HeroSection() {
             className="font-script shimmer-text leading-tight px-2"
             style={{
               fontSize: 'clamp(34px, 10vw, 60px)',
+              color: 'transparent',
+              WebkitTextFillColor: 'transparent',
             }}
           >
             Karim & Nada
@@ -155,6 +158,8 @@ export default function HeroSection() {
               fontSize: 'clamp(22px, 6.6vw, 34px)',
               marginTop: '-4px',
               animationDuration: '6s',
+              color: 'transparent',
+              WebkitTextFillColor: 'transparent',
             }}
             dir="rtl"
           >
