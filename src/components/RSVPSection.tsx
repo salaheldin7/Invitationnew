@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-const RSVP_ENDPOINT = import.meta.env.VITE_RSVP_ENDPOINT ?? '';
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 

@@ -86,7 +86,7 @@ export default function HeroSection() {
         >
           <img
             src="/logo/logo2.PNG"
-            alt="Karim and Nada monogram"
+            alt="Ahmed and Mariam monogram"
             style={{
               width: 'clamp(52px, 14vw, 96px)',
             }}
@@ -147,7 +147,7 @@ export default function HeroSection() {
               fontSize: 'clamp(34px, 10vw, 60px)',
             }}
           >
-            Karim & Nada
+            Ahmed & Mariam
           </h1>
           <p
         className="font-basmala arabic-gold"
@@ -158,7 +158,7 @@ export default function HeroSection() {
             }}
             dir="rtl"
           >
-            كريم يوسف و ندى هشام
+            أحمد و مريم
           </p>
         </motion.div>
 
@@ -195,7 +195,7 @@ export default function HeroSection() {
               fontSize: 'clamp(20px, 6vw, 30px)',
             }}
           >
-            August
+            July
           </span>
 
           <div className="text-center px-4 border-l border-r border-[rgba(201,169,110,0.35)]">
@@ -205,7 +205,7 @@ export default function HeroSection() {
                 fontSize: 'clamp(26px, 8vw, 40px)',
               }}
             >
-              21
+              30
             </span>
           </div>
 
@@ -215,7 +215,7 @@ export default function HeroSection() {
               fontSize: 'clamp(20px, 6vw, 30px)',
             }}
           >
-            2026
+            2029
           </span>
         </motion.div>
 
@@ -232,7 +232,7 @@ export default function HeroSection() {
             duration: 0.8,
           }}
         >
-          7:00 PM
+          9:00 PM
         </motion.p>
 
         {/* Location */}
@@ -253,7 +253,7 @@ export default function HeroSection() {
               fontSize: 'clamp(9px, 2.5vw, 13px)',
             }}
           >
-            The Westin Cairo Golf Resort and Spa
+            The big GIZA resort
           </p>
 
           <p
@@ -263,7 +263,7 @@ export default function HeroSection() {
             }}
             dir="rtl"
           >
-            القاهرة · فندق ويستن كايرو
+            الجيزة · منتجع الكبرى
           </p>
         </motion.div>
 
